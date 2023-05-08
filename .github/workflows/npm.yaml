@@ -1,8 +1,11 @@
 name: Publish Package to npmjs
 
 on:
+  workflow_run:
+    workflows:
+
   release:
-    types: [created]
+    types: [created,published]
 
 jobs:
   build:
