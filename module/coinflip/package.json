@@ -1,0 +1,25 @@
+{
+  "name": "coinflip",
+  "version": "0.0.2",
+  "description": "module that will return the result of a coinflip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongjz/npm-provenance-example.git"
+  },
+  "keywords": [
+    "coinflip"
+  ],
+  "author": "James Strong <strong.james.e@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/strongjz/npm-provenance-example/issues"
+  },
+  "homepage": "https://github.com/strongjz/npm-provenance-example#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
