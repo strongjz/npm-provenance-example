@@ -1,5 +1,5 @@
 {
-  "name": "coinflip",
+  "name": "strongcoin",
   "version": "0.0.2",
   "description": "module that will return the result of a coinflip",
   "main": "index.js",

@@ -11,8 +11,5 @@
   "dependencies": {
     "@cyclonedx/cyclonedx-npm": "^1.7.2",
     "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "coinflip": "^1.0.0"
   }
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const coinflip = require('coinflip');
+const coinflip = require('strongcoin');
 
 const app = express();
 
