@@ -10,7 +10,7 @@ variables:
   OIDC_ISSUER_URL: "https://oauth2.sigstage.dev/auth"
 
 include:
-  - template: '/templates/npm.gitlab-ci.yml'
+  - local: 'npm.gitlab-ci.yml'
 
 npm-provenance-example:
   stage: build
