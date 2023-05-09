@@ -20,10 +20,8 @@ npm-provenance-example:
       aud: "sigstore"
 
   script:
-    - apk delete npm
     - git clone https://github.com/wlynch/npm-cli.git
     - cd ./npm-cli && node . install
-    - npm version
 
 set-deploy:
   stage: deploy
