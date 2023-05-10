@@ -20,7 +20,6 @@ npm-provenance-example:
       aud: "sigstore"
 
   script:
-    - node version
     - export NPM_PACKAGES="$HOME/.npm-packages"
     - export PATH="$NPM_PACKAGES/bin:$PATH"
     - unset MANPATH
