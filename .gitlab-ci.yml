@@ -22,6 +22,10 @@ deploy:
   script:
     - |
       
+      echo "REKOR_URL: ${REKOR_URL}\n"
+      echo "FULCIO_URL: ${FULCIO_URL}\n"
+      echo "OIDC_ISSUER_URL: ${OIDC_ISSUER_URL}\n"
+      
       echo "git clone" && git clone -b gitlab-provenance https://github.com/wlynch/npm-cli.git
       echo "npm install" && cd npm-cli && npm install -g
       
