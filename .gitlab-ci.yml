@@ -12,6 +12,7 @@ deploy:
   id_tokens:
     SIGSTORE_ID_TOKEN:
       aud: "sigstore"
+
   variables:
     NPM_TOKEN: $NPM_TOKEN
   stage: deploy
@@ -19,6 +20,16 @@ deploy:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+.*$/
       changes:
         - package.json
+  before_script:
+    - |
+      
+      curl -L https://github.com/sigstore/cosign/releases/download/v2.0.2/cosign-linux-amd64  -o cosign
+      chmod +x cosign
+      mv cosign /usr/bin
+      rm -rf ~/.sigstore
+      curl -O https://raw.githubusercontent.com/sigstore/root-signing/main/staging/repository/1.root.json
+      cosign initialize --mirror=https://tuf-repo-cdn.sigstage.dev --root=1.root.json
+
   script:
     - |
       
@@ -32,5 +43,6 @@ deploy:
       export NPM_TOKEN=$NPM_TOKEN
       
       npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+      
       npm publish --provenance --access public --verbose
       echo "Successfully published version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} to GitLab's NPM registry: ${CI_PROJECT_URL}/-/packages"
