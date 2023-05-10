@@ -1,5 +1,8 @@
 publish:
   image: node:latest
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: "sigstore"
   stage: deploy
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+.*$/
