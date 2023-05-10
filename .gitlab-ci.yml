@@ -1,24 +1,12 @@
 image: node:latest
 
 stages:
-  - build
   - deploy
 variables:
   COSIGN_YES: "true"
   REKOR_URL: "https://rekor.sigstage.dev"
   FULCIO_URL: "https://fulcio.sigstage.dev"
   OIDC_ISSUER_URL: "https://oauth2.sigstage.dev/auth"
-
-npm-provenance-example:
-  stage: build
-  # Set the JWT token audience and the name of the env variable
-  id_tokens:
-    SIGSTORE_ID_TOKEN:
-      aud: "sigstore"
-
-  script:
-    - echo "git clone" && git clone -b gitlab-provenance https://github.com/wlynch/npm-cli.git
-    - echo "npm install" && cd npm-cli && npm install -g
 
 deploy:
   id_tokens:
@@ -33,7 +21,12 @@ deploy:
         - package.json
   script:
     - |
+      
+      echo "git clone" && git clone -b gitlab-provenance https://github.com/wlynch/npm-cli.git
+      echo "npm install" && cd npm-cli && npm install -g
+      
       export NPM_TOKEN=$NPM_TOKEN
+      
       npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
       npm publish --provenance --access public --verbose
       echo "Successfully published version ${NPM_PACKAGE_VERSION} of ${NPM_PACKAGE_NAME} to GitLab's NPM registry: ${CI_PROJECT_URL}/-/packages"
