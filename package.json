@@ -1,5 +1,5 @@
 {
-  "name": "strongcoin",
+  "name": "@strongjz/npm-provenance-example",
   "version": "0.0.8",
   "description": "module that will return the result of a coinflip",
   "main": "index.js",

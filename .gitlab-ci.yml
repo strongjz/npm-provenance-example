@@ -22,13 +22,3 @@ npm-provenance-example:
   script:
     - echo "git clone" && git clone -b gitlab-provenance https://github.com/wlynch/npm-cli.git
     - echo "npm install" && cd npm-cli && npm install -g
-
-set-deploy:
-  stage: deploy
-  # Set the JWT token audience and the name of the env variable
-  id_tokens:
-    SIGSTORE_ID_TOKEN:
-      aud: "sigstore"
-
-  script:
-    - echo "Running NPM publish"
