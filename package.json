@@ -1,6 +1,6 @@
 {
   "name": "strongcoin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "module that will return the result of a coinflip",
   "main": "index.js",
   "scripts": {
