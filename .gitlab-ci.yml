@@ -21,6 +21,11 @@ npm-provenance-example:
 
   script:
     - node version
+    - export NPM_PACKAGES="$HOME/.npm-packages"
+    - export PATH="$NPM_PACKAGES/bin:$PATH"
+    - unset MANPATH
+    - export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+    - export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
     - echo "git clone" && git clone -b gitlab-provenance https://github.com/wlynch/npm-cli.git
     - echo "npm install" && cd npm-cli && node . install
 
